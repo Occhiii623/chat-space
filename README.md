@@ -6,7 +6,7 @@
 |-----|----|-------|
 |email|string|null: false, unique: true|
 |password|string|null: false|
-|username|string|null: false, unique: true, index: true|
+|name|string|null: false, unique: true, index: true|
 ### Association
 - has_many :groups, through: :groups_users
 - has_many :groups_users
@@ -33,7 +33,7 @@
 ## messagesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|body|text|null: false|
+|body|text||
 |image|string||
 |user|references|null: false, foreign_key: true|
 |group|references|null: false, foreign_key: true|
