@@ -1,0 +1,31 @@
+.chat-side
+  .side-header
+    .side-header__box
+      %p.side-header__box__user-name
+        まゆみ
+      %ul.side-header__box__menu
+        %li.side-header__box__menu__edit-user
+          = link_to "#" do
+            = icon('far', 'edit', class: 'edit')
+        %li.side-header__box__menu__new-group
+          = link_to "#" do
+            = icon('fas', 'cog', class: 'cog')
+  .groups
+    = link_to "#", class: "group" do
+      %p.group__group-name
+        グループ名①
+      %p.group__latest-message
+        まだメッセージがありません
+    
+    = link_to "#", class: "group" do
+      %p.group__group-name
+        グループ名②
+      %p.group__latest-message
+        まだメッセージがありません
+
+    = link_to "#", class: "group" do
+      %p.group__group-name
+        グループ名③
+      %p.group__latest-message
+        まだメッセージがありません
+    
