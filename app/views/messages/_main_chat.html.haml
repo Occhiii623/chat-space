@@ -2,46 +2,26 @@
   .main-header
     .main-header__left-box
       %h2.main-header__left-box__current-group
-        グループ名①
+        = @group.name
       %ul.main-header__left-box__member-list
         Member : 
-        %li.main-header__left-box__member-list__member まゆみ
-        %li.main-header__left-box__member-list__member yasuyuki
+        - @group.users.each do |user|
+          %li.main-header__left-box__member-list__member
+          = user.name
 
-    =link_to "#" do
+    =link_to edit_group_path(@group) do
       .main-header__edit-btn
         Edit
 
   .messages
-    .message
-      .message__upper-info
-        %p.message__upper-info__talker まゆみ
-        %p.message__upper-info__date 2020/04/08(Wed) 10:11:55
-      %p.message__text test!!!!!!
-
-      .message
-      .message__upper-info
-        %p.message__upper-info__talker yasuyuki
-        %p.message__upper-info__date 2020/04/08(Wed) 10:20:50
-      %p.message__text ああああああああああああ
-
-      .message
-      .message__upper-info
-        %p.message__upper-info__talker まゆみ
-        %p.message__upper-info__date 2020/04/08(Wed) 10:25:55
-      %p.message__text テストテストテストテストテストテストテストテストテスト
-
-      .message
-      .message__upper-info
-        %p.message__upper-info__talker まゆみ
-        %p.message__upper-info__date 2020/04/08(Wed) 10:30:55
-      %p.message__text テックキャンプテックキャンプ
+    = render partial: 'message', collection: @messages
 
   .form
-    %fotm.new-message
-      .input-box
-        %input{type: "text", class: "input-box__text", placeholder: "type a message"}
-        %label{class: "input-box__image"}
-          = icon('far', 'image')
-          %input{type: "file", class: "input-box__image__file"}
-      %input{type: "submit", class: "submit-btn", value: "Send"}
+    = form_for [@group, @message] do |f|
+      .new-message
+        .input-box
+          = f.text_field :body, class: "input-box__text", placeholder: "type a message"
+          = f.label :image, class: "input-box__image" do
+            = icon('far', 'image')
+            = f.file_field :image, class: "input-box__image__file"
+        = f.submit "Send", class: "submit-btn"

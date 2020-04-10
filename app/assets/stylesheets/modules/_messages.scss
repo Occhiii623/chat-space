@@ -58,18 +58,20 @@ $link_color: #38aef0;
     background-color: #2f3e51;
     padding: 20px;
     .group {
-      color: $white;
-      font-weight: bold;
-      text-decoration: none;
       display: block;
       margin-bottom: 40px;
+      a{
+        color: $white;
+        font-weight: bold;
+        text-decoration: none;
+      }
         &__group-name{
           font-size: 15px;
           padding-bottom: 5px;
         }
         &__latest-message{
           font-size: 11px;
-        }
+        } 
     }
   }
 }
@@ -150,6 +152,7 @@ $link_color: #38aef0;
     width: 100%;
     background-color: #d2d2d2;
     padding: 20px 40px;
+    z-index: 1;
     .new-message{
       display: flex;
       .input-box{
