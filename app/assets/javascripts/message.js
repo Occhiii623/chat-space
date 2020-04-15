@@ -1,48 +1,51 @@
 $(function(){
   function buildHTML(message) {
     if (message.content && message.image) {
-      var html = `<div class="message">` +
-        `<div class="message__upper-info">` +
-        `<div class="message__upper-info__talker">` +
-        message.user_name +
-        `</div>` +
-        `<div class="message__upper-info__date">` +
-        message.created_at +
-        `</div>` +
-        `</div>` +
-        `<div class="message__text">` +
-        message.content +
-        `<img src="` + message.image + `" class="lower-message__image" >` +
-        `</div>` +
-        `</div>`
+      var html = 
+      `<div class="message">
+        <div class="message__upper-info">
+          <div class="message__upper-info__talker">
+            ${message.user_name}
+          </div>
+          <div class="message__upper-info__date">
+            ${message.created_at}
+          </div>
+        </div>
+        <div class="message__text">
+            ${message.content}
+            <img src="${message.image}" class="lower-message__image">
+        </div>
+      </div>`
     } else if (message.content) {
-      var html = `<div class="message">` +
-        `<div class="message__upper-info">` +
-        `<div class="message__upper-info__talker">` +
-        message.user_name +
-        `</div>` +
-        `<div class="message__upper-info__date">` +
-        message.created_at +
-        `</div>` +
-        `</div>` +
-        `<div class="message__text">` +
-        message.content +
-        `</div>` +
-        `</div>`
+      var html = 
+      `<div class="message">
+          <div class="message__upper-info">
+            <div class="message__upper-info__talker">
+              ${message.user_name}
+            </div>
+            <div class="message__upper-info__date">
+              ${message.created_at}
+            </div>
+          </div>
+          <div class="message__text">
+            ${message.content}
+          </div>
+        </div>`
     } else if (message.image) {
-      var html = `<div class="message">` +
-        `<div class="message__upper-info">` +
-        `<div class="message__upper-info__talker">` +
-        message.user_name +
-        `</div>` +
-        `<div class="message__upper-info__date">` +
-        message.created_at +
-        `</div>` +
-        `</div>` +
-        `<div class="message__text">` +
-        `<img src="` + message.image + `" class="lower-message__image" >` +
-        `</div>` +
-        `</div>`
+      var html = 
+      `<div class="message">
+          <div class="message__upper-info">
+            <div class="message__upper-info__talker">
+              ${message.user_name}
+            </div>
+            <div class="message__upper-info__date">
+              ${message.created_at}
+            </div>
+          </div>
+          <div class="message__text">
+            <img src="${message.image}" class="lower-message__image">
+          </div>
+        </div>`
     };
     return html;
   }
